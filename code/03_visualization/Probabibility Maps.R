@@ -31,7 +31,7 @@ library(RColorBrewer) # For color palettes
 # Load shapefile (adjust path if needed)
 shp_path <- "model_input/NSW_LHD_Boundaries.shp"
 if(!file.exists(shp_path)) {
-  shp_path <- file.path("salmonella_hassan/spatial_data/NSW_LHD_Boundaries.shp")
+  shp_path <- file.path("data/raw/NSW_LHD_Boundaries.shp")
   if(!file.exists(shp_path)) {
     stop("Shapefile not found. Please provide the correct path.")
   }

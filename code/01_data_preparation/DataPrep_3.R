@@ -72,7 +72,7 @@ data_ts <- my_data %>%
 # 5) Load Shapefile and Build Adjacency (Spatial Component)
 #---------------------------------------------------------------------
 # Example shapefile: "NSW_LHD_Boundaries.shp"
-shp <- st_read("salmonella_hassan/spatial_data/NSW_LHD_Boundaries.shp")
+shp <- st_read("data/raw/NSW_LHD_Boundaries.shp")
 
 # Create an LHD column in the shapefile to match the data
 shp$LHD <- as.character(shp$lhd_name)

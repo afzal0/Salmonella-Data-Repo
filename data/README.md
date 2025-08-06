@@ -32,8 +32,7 @@ This directory contains all data files used in the analysis of climate impacts o
 
 ### 4. Spatial Data
 - **Files**: 
-  - `raw/nswlhd.*` - NSW Local Health District boundaries
-  - `raw/STE_2016_AUST.*` - Australian state boundaries
+  - `raw/NSW_LHD_Boundaries.*` - NSW Local Health District boundaries
   - `raw/LocalHealthDistricts.kml` - LHD boundaries in KML format
 - **Source**: Australian Bureau of Statistics
 - **Format**: ESRI Shapefile and KML

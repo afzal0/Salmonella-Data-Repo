@@ -57,7 +57,7 @@ source("code/02_modeling/Accuracy Assessment.R")
 #### DataPrep_3.R
 - **Purpose**: Main data preparation script
 - **Inputs**: 
-  - `data/raw/datafinal.csv`
+  - `weather_data/final_datafile.csv`
   - Shapefiles in `data/raw/`
 - **Outputs**:
   - `data/processed/data_casecrossover.RData`
