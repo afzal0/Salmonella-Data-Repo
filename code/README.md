@@ -209,9 +209,3 @@ To adjust model specifications:
 2. Follow naming convention
 3. Document inputs/outputs
 4. Update this README
-
-## Contact
-
-For code-related questions:
-- Open an issue on GitHub
-- Contact: [developer email]
