@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Adegboye"
+    given-names: "Oyelola A."
+    affiliation: "Menzies School of Health Research, Charles Darwin University"
+  - family-names: "Amarasena"
+    given-names: "Tehan"
+    affiliation: "James Cook University"
+  - family-names: "Khan"
+    given-names: "Mohammad Afzal"
+    affiliation: "Monash University"
+  - family-names: "Ajulo"
+    given-names: "Hassan"
+    affiliation: "James Cook University"
+  - family-names: "Pak"
+    given-names: "Anton"
+    affiliation: "The University of Queensland"
+  - family-names: "Taniar"
+    given-names: "David"
+    affiliation: "Monash University"
+  - family-names: "Emeto"
+    given-names: "Theophilus I."
+    affiliation: "James Cook University"
+title: "Too Hot, Too Wet: Bayesian Spatial Modelling of Climate-Driven Salmonella Risk in NSW: Analysis Code and Data"
+version: 1.0.0
+date-released: 2025-06-29
+url: "https://github.com/[username]/salmonella-climate-nsw"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Adegboye"
+      given-names: "Oyelola A."
+    - family-names: "Amarasena"
+      given-names: "Tehan"
+    - family-names: "Khan"
+      given-names: "Mohammad Afzal"
+    - family-names: "Ajulo"
+      given-names: "Hassan"
+    - family-names: "Pak"
+      given-names: "Anton"
+    - family-names: "Taniar"
+      given-names: "David"
+    - family-names: "Emeto"
+      given-names: "Theophilus I."
+  title: "Too Hot, Too Wet: Bayesian Spatial Modelling of Climate-Driven Salmonella Risk in New South Wales, Australia, 1991–2022"
+  year: 2025
+  journal: "[Journal Name - in review]"
+  volume: 0
+  issue: 0
+  start: 1
+  end: 20
+  doi: "10.0000/journal.0000"
