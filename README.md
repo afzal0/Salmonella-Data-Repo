@@ -18,11 +18,11 @@ Oyelola A. Adegboye¹²*†, Tehan Amarasena²†, Mohammad Afzal Khan³†, Has
 
 **Background**: Salmonella infections are responsible for a substantial number of hospitalisations due to bacterial gastrointestinal infections in Australia and contribute significantly to the global burden of infectious diseases. Evidence suggests a seasonal variation of salmonella worldwide, but there is limited literature on these relationships involving rainfall and temperature, particularly in Australia. 
 
-**Objective**: This study investigated the trend of Salmonella cases and their relationship with climatic factors such as temperature, rainfall and flood events at the local health districts (LHDS) level across New South Wales (NSW), Australia. 
+**Objective**: This study investigated the trend of Salmonella cases and their relationship with climatic factors such as temperature, rainfall and flood events at the local health districts (LHDs) level across New South Wales (NSW), Australia. 
 
 **Methods**: Monthly Salmonella cases and climate data (mean temperature, mean minimum temperature, mean maximum temperature and rainfall) were matched to their corresponding LHD in NSW. 
 
-**Results**: Higher recordings of all the climate variables were positively associated with salmonella (all with p < 0.001), and mean monthly minimum temperature was most strongly associated with salmonella (r= 0.404). There is a greater association of mean monthly temperature and total daily rainfall with salmonella in metropolitan LHDs than in the rural/regional LHDs of NSW. 
+**Results**: Higher recordings of all the climate variables were positively associated with salmonella (all with p < 0.001), and mean monthly minimum temperature was most strongly associated with salmonella (r = 0.404). There is a greater association of mean monthly temperature and total daily rainfall with salmonella in metropolitan LHDs than in the rural/regional LHDs of NSW. 
 
 **Conclusion**: Rising temperatures, increased rainfall, and flood events are likely to contribute to higher rates of salmonella in NSW. These findings have important public health implications that extend beyond NSW, highlighting the need for broader national and global preparedness in the context of a changing climate.
 
@@ -93,12 +93,31 @@ Oyelola A. Adegboye¹²*†, Tehan Amarasena²†, Mohammad Afzal Khan³†, Has
 
 ## Data Description
 
-### Input Data
+### Study Area
+- **Geographic scope**: New South Wales (NSW), Australia
+- **Administrative units**: 15 Local Health Districts (6 metropolitan and 9 rural/regional)
+- **Study period**: 1991-2022 (32 years)
 
-- **Epidemiological data**: Monthly Salmonella case counts by LHD (1991-2022)
-- **Climate data**: Monthly temperature (mean, max, min), rainfall, flood events, and humidity
-- **Spatial data**: NSW Local Health District boundaries (shapefile)
-- **Population data**: Annual population estimates by LHD
+### Data Sources
+
+1. **Health Data**
+   - **Source**: NSW Health Notifiable Conditions Information Management System (NCIMS)
+   - **Type**: Monthly non-identifiable notifications of Salmonella cases
+   - **Aggregation**: By Local Health District (LHD)
+
+2. **Meteorological Data**
+   - **Source**: Australian Bureau of Meteorology
+   - **Variables**: Monthly total rainfall (mm), mean temperature (°C), mean maximum temperature (°C), mean minimum temperature (°C)
+   - **Processing**: Weather station data manually assigned to LHDs using coordinates; averaged where multiple stations per LHD
+
+3. **Population Data**
+   - **Source**: NSW Department of Planning
+   - **Type**: Annual population estimates by LHD
+   - **Note**: Pre-2001 estimates retrospectively calculated using 2002 growth rates
+
+4. **Spatial Data**
+   - **Type**: NSW Local Health District boundaries (shapefile)
+   - **Format**: ESRI Shapefile with 15 LHD polygons
 
 ### Key Variables
 
@@ -118,22 +137,29 @@ Oyelola A. Adegboye¹²*†, Tehan Amarasena²†, Mohammad Afzal Khan³†, Has
 
 ### Models
 
-1. **Model 3: Case-Crossover with Spatial Effects**
-   - Conditional Poisson regression
-   - Intrinsic CAR spatial correlation
-   - Stratification by LHD and year-month
+We employed two complementary Bayesian hierarchical models using distributed lag non-linear models (DLNMs) to capture complex exposure-response relationships:
+
+1. **Model 3: Case-Crossover Design with Spatial Effects**
+   - Time-stratified case-crossover design using LHD-month strata as fixed intercepts
+   - Inherently controls for time-varying confounders like seasonality and long-term trends
+   - Intrinsic CAR (iCAR) spatial random effects to account for spatial correlation
+   - Suitable for assessing short-term environmental effects
 
 2. **Model 4: Time-Series with Spatial Effects**
-   - Poisson regression with temporal trends
-   - Seasonal components
-   - Regional random intercepts
+   - Full Bayesian hierarchical time-series structure
+   - Random intercepts for LHD and calendar month
+   - Region-specific long-term trends and seasonal deviations
+   - Spatial correlation via iCAR prior
 
 ### Key Features
 
-- Distributed Lag Non-Linear Models (DLNM) to capture delayed effects
-- Bayesian inference using NIMBLE
-- Spatial correlation using intrinsic Conditional Autoregressive (iCAR) models
-- Natural splines for flexible exposure-response relationships
+- **DLNM Framework**: Natural cubic splines for both exposure-response relationships and lag effects (0-2 days)
+- **Exposure Splines**: Knots at the 10th, 50th, and 90th percentiles of observed values
+- **Mean-Centered Exposures**: All climate variables centered prior to basis construction
+- **Bayesian Inference**: NIMBLE package with 3 chains, 5,000 iterations each (after burn-in)
+- **Spatial Correlation**: Queen contiguity adjacency for intrinsic CAR models
+- **Prior Distributions**: Hierarchical normal priors for coefficients with vague hyperpriors
+- **Convergence Assessment**: R̂ statistics and traceplots
 
 ## Results
 
