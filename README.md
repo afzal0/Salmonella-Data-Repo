@@ -153,7 +153,7 @@ We employed two complementary Bayesian hierarchical models using distributed lag
 
 ### Key Features
 
-- **DLNM Framework**: Natural cubic splines for both exposure-response relationships and lag effects (0-2 days)
+- **DLNM Framework**: Natural cubic splines for both exposure-response relationships and lag effects (0-2 months)
 - **Exposure Splines**: Knots at the 10th, 50th, and 90th percentiles of observed values
 - **Mean-Centered Exposures**: All climate variables centered prior to basis construction
 - **Bayesian Inference**: NIMBLE package with 3 chains, 5,000 iterations each (after burn-in)
